@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-lg animate__animated animate__fadeIn">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0"><i class="fas fa-book me-2"></i>Voti</h3>
+    </div>
+    <div class="card-body">
+        {% if not materie %}
+        <div class="alert alert-info animate__animated animate__pulse">
+            <i class="fas fa-info-circle me-2"></i> Nessun voto inserito
+        </div>
+        {% else %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Materia</th>
+                        <th>Voti</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for voto in voti %}
+                    <tr class="voto-item" data-id="{{ voto._id }}">
+                        <td class="voto-info">
+                            <span class="materia">{{ voto.materia }}</span>
+                            <span class="valore 
+                                {% if voto.valore == 10 %}text-success crown-badge
+                                {% elif voto.valore >= 7 %}text-success
+                                {% elif voto.valore >= 5.5 %}text-warning
+                                {% else %}text-danger
+                                {% endif %}">
+                                {{ voto.valore }}
+                                {% if voto.valore == 10 %}<i class="fas fa-crown ms-1"></i>{% endif %}
+                            </span>
+                            <span class="data">{{ voto.data_inserimento.strftime('%d/%m/%Y') }}</span>
+                        </td>
+                        <td>
+                            <button class="btn-elimina" title="Elimina voto">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+/* Colori personalizzati */
+:root {
+    --gold: #FFD700;
+    --light-shadow: rgba(0,0,0,0.1);
+}
+
+/* Animazioni */
+.animate__animated {
+    animation-duration: 0.5s;
+}
+
+/* Stile coroncina */
+.bg-gold {
+    background-color: var(--gold) !important;
+    color: #000 !important;
+}
+
+.crown-badge {
+    position: relative;
+    box-shadow: 0 2px 5px var(--light-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.crown-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--light-shadow);
+}
+
+/* Effetti hover */
+.table-hover tbody tr:hover {
+    transform: scale(1.01);
+    transition: transform 0.2s;
+    background-color: rgba(0, 123, 255, 0.05) !important;
+}
+
+/* Badge animati */
+.badge {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(30deg);
+    transition: all 0.3s;
+}
+
+.badge:hover::after {
+    left: 100%;
+}
+
+/* Stile per ogni elemento voto */
+.voto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.voto-item:hover {
+    background-color: #f0f0f0;
+}
+
+.voto-info {
+    display: flex;
+    gap: 15px;
+}
+
+.materia {
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.valore {
+    font-size: 1.1em;
+    min-width: 40px;
+    text-align: center;
+}
+
+.data {
+    color: #666;
+}
+
+/* Stile per il bottone elimina */
+.btn-elimina {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #ff3b30;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.btn-elimina:hover {
+    opacity: 1;
+}
+
+/* Stili per i messaggi di feedback */
+.messaggio {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
